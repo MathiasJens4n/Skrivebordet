@@ -15,7 +15,7 @@
         <Button x:Name="buttonWeek" Content="Every week" HorizontalAlignment="Left" Margin="268,83,0,0" VerticalAlignment="Top" Click="buttonWeek_Click"/>
         <Label Content="How often do you want to change desktop wallpaper?" HorizontalAlignment="Left" Margin="151,5,0,0" VerticalAlignment="Top"/>
         <Label Content="Url:" HorizontalAlignment="Left" Margin="137,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.025,0.59"/>
-        <StackPanel x:Name="urls" Margin="10,336,-10,-336"/>
+        <StackPanel x:Name="stackUrls" Margin="10,336,-10,-336"/>
 
     </Grid>
 </Window>
