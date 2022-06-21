@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
 using System.Diagnostics;
+using System.IO;
 
 namespace Skrivebordet
 {
@@ -72,14 +73,32 @@ namespace Skrivebordet
         private void buttonUpload_Click(object sender, RoutedEventArgs e)
         {
             urls.Add(textBoxUrl.Text);
-            textBoxUrl.Text = "";
+
+
+
+            using (StreamWriter sw = new StreamWriter("url.txt"))
+            {
+                foreach (var item in urls)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+
+            string line = "";
+            using (StreamReader sr = new StreamReader("url.txt"))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+
             foreach (string tb in urls)
             {
                 Debug.WriteLine(tb);
             }
-            Image img = new Image();
-            img.Source = new BitmapImage(new Uri(urls[index], UriKind.Relative));
-            comboBox.ItemsSource = (System.Collections.IEnumerable)img;
+            listBox.ItemsSource = urls.ToArray();
+            textBoxUrl.Text = "";
 
         }
 
