@@ -77,7 +77,10 @@ namespace Skrivebordet
             {
                 Debug.WriteLine(tb);
             }
-            
+            Image img = new Image();
+            img.Source = new BitmapImage(new Uri(urls[index], UriKind.Relative));
+            stackUrls.Children.Add(img);//-->here ivnod displayed as "not available in current context"
+
         }
 
         private void buttonHour_Click(object sender, RoutedEventArgs e)
