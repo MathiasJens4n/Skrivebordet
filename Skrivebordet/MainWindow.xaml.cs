@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
 
 namespace Skrivebordet
 {
@@ -21,16 +22,52 @@ namespace Skrivebordet
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> url = new List<string>();
         public const int SPI_SETDESKWALLPAPER = 20;
         public const int SPIF_UPDATEINIFILE = 1;
         public const int SPIF_SENDCHANGE = 2;
+        int index = 0;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
         public MainWindow()
         {
             InitializeComponent();
-            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, @"C:\Users\zbcmatbj\Pictures\bæver.jpg", SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        }
+        public void SetTimer(int time)
+        {
+            Timer timer = new Timer(time);
+            timer.Elapsed += ChangeWallpaper;
+        }
+
+        private void ChangeWallpaper(object sender, ElapsedEventArgs e)
+        {
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, url[index], SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            url.Remove(textBoxUrl.Text);
+        }
+
+        private void buttonUpload_Click(object sender, RoutedEventArgs e)
+        {
+            url.Add(textBoxUrl.Text);
+        }
+
+        private void buttonHour_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonDay_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonWeek_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="textBoxUrl" HorizontalAlignment="Left" Margin="91,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="buttonUpload" Content="Upload" HorizontalAlignment="Left" Margin="169,125,0,0" VerticalAlignment="Top" Click="buttonUpload_Click"/>
+        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="91,125,0,0" VerticalAlignment="Top" Click="buttonDelete_Click"/>
+        <Button x:Name="buttonHour" Content="Every hour" HorizontalAlignment="Left" Margin="268,33,0,0" VerticalAlignment="Top" Width="63" Click="buttonHour_Click"/>
+        <Button x:Name="buttonDay" Content="Every day" HorizontalAlignment="Left" Margin="268,58,0,0" VerticalAlignment="Top" Width="63" Click="buttonDay_Click"/>
+        <Button x:Name="buttonWeek" Content="Every week" HorizontalAlignment="Left" Margin="268,83,0,0" VerticalAlignment="Top" Click="buttonWeek_Click"/>
+        <Label Content="How often do you want to change desktop wallpaper?" HorizontalAlignment="Left" Margin="151,5,0,0" VerticalAlignment="Top"/>
+        <Label Content="Url:" HorizontalAlignment="Left" Margin="137,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.025,0.59"/>
+        <StackPanel x:Name="urls" Margin="10,336,-10,-336"/>
+
     </Grid>
 </Window>
